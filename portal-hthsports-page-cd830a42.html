@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 信息入口 · 稳定页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f9fc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            padding: 2rem 1rem;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* hero 区域 —— 极简留白卡片 */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 3rem 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 4px 16px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hero:hover {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 560px;
+            margin-top: 0.5rem;
+            border-left: 3px solid #a0c4e8;
+            padding-left: 1.2rem;
+            background: #f8fafc;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .hero .sub p {
+            margin: 0.3rem 0;
+        }
+
+        /* 通用卡片网格 */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.5rem;
+            border: 1px solid #edf2f7;
+            transition: all 0.15s ease;
+        }
+
+        .card:hover {
+            border-color: #cddbe8;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0f172a;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card p {
+            font-size: 0.94rem;
+            color: #475569;
+        }
+
+        .card p a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px dotted #b9cef0;
+            transition: border 0.15s;
+        }
+
+        .card p a:hover {
+            border-bottom: 1px solid #1e4cb5;
+            color: #1e4cb5;
+        }
+
+        /* 全宽卡片 (适合人群/说明) */
+        .full-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #edf2f7;
+            margin-bottom: 2.5rem;
+        }
+
+        .full-card h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .full-card p, .full-card li {
+            font-size: 0.95rem;
+            color: #334155;
+            margin-bottom: 0.4rem;
+        }
+
+        .full-card ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .full-card ul li::before {
+            content: "·";
+            margin-right: 0.4rem;
+            color: #7c8ba3;
+        }
+
+        .inline-link-sentence {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.4rem 2rem;
+            border: 1px solid #edf2f7;
+            margin-bottom: 2.5rem;
+            font-size: 0.96rem;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        .inline-link-sentence a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #b9cef0;
+            transition: border 0.15s, background 0.15s;
+        }
+
+        .inline-link-sentence a:hover {
+            border-bottom: 1px solid #1e4cb5;
+            background: #f2f6fe;
+            padding: 0 0.15rem;
+            margin: 0 -0.15rem;
+            border-radius: 2px;
+        }
+
+        /* faq 摘要 极简 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.5rem 2rem 1.8rem;
+            border: 1px solid #edf2f7;
+            margin-bottom: 2.5rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0f172a;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 0.95rem;
+            margin-bottom: 0.05rem;
+        }
+
+        .faq-a {
+            color: #5a6a7e;
+            font-size: 0.9rem;
+            padding-left: 0.8rem;
+            border-left: 2px solid #dee9f2;
+            margin-top: 0.1rem;
+            padding-top: 0.1rem;
+            padding-bottom: 0.2rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #7b8a9e;
+            font-size: 0.8rem;
+            border-top: 1px solid #eaf0f6;
+            padding-top: 1.6rem;
+            margin-top: 0.5rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.75rem;
+            }
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .full-card, .inline-link-sentence, .faq-mini {
+                padding: 1.2rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 主视觉 hero -->
+    <div class="hero">
+        <h1>华体会 · 信息卡片</h1>
+        <div class="sub">
+            <p>一个稳定的页面入口，便于快速了解用途与场景。</p>
+            <p>没有冗余装饰，只叙述必要的内容。</p>
+        </div>
+    </div>
+
+    <!-- 用途卡片 两列 -->
+    <div class="grid-2">
+        <div class="card">
+            <h3>📄 页面定位</h3>
+            <p>作为 <a href="https://portal--hthsports.com">华体会</a> 的辅助介绍页，以简洁卡片承载功能概述与适用人群。不追踪、不收集，仅为浏览者提供一份安静的参考。</p>
+        </div>
+        <div class="card">
+            <h3>🧭 信息结构</h3>
+            <p>围绕常用场景与常见问题展开，帮助初次接触的人快速建立认知。所有引用均指向 <a href="https://portal--hthsports.com">华体会</a> 自身的内容体系。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 全宽卡片 -->
+    <div class="full-card">
+        <h2>适合这样的人群</h2>
+        <p>如果你属于以下几类之一，这个页面或许能为你节省一点时间：</p>
+        <ul>
+            <li>希望先了解大致用途，再决定是否深入浏览的人</li>
+            <li>需要一份简短且不需登录的说明页，作为跳转前的过渡</li>
+            <li>偶尔回访，想快速确认平台定位与更新方向</li>
+            <li>对界面整洁度有要求，倾向克制的信息呈现</li>
+        </ul>
+        <p style="margin-top: 0.6rem; font-size: 0.88rem; color: #5e6f84;">页面本身不替代主站功能，所有操作与内容仍以 <a href="https://portal--hthsports.com" style="color: #2563eb; text-decoration: none; border-bottom: 1px dotted #b9cef0;">华体会</a> 为准。</p>
+    </div>
+
+    <!-- 自然链接段落 (嵌入a) -->
+    <div class="inline-link-sentence">
+        <p>很多人在寻找一个稳定、信息清晰的入口。如果你也是其中之一，可以直接前往 <a href="https://portal--hthsports.com">华体会</a> 查看实时内容。这个介绍页只作为辅助，目的是让你在访问主站之前，对整体方向有一个大致的印象。卡片中提到的特点与场景均基于日常使用观察，不构成任何形式的承诺或保证。</p>
+        <p style="margin-top: 0.8rem;">另外，如果你已经熟悉 <a href="https://portal--hthsports.com">华体会</a> 的内容结构，这份卡片也可以当作一份快速索引，方便你向其他人说明这个平台的定位与用途。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2>常见问题 · 摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">这个页面和主站是什么关系？</div>
+            <div class="faq-a">独立的介绍页，不继承主站会话，也不收集任何数据。所有链接最终都指向 <a href="https://portal--hthsports.com" style="color: #2563eb; text-decoration: none; border-bottom: 1px dotted #b9cef0;">华体会</a> 主域名。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">需要注册或登录才能使用吗？</div>
+            <div class="faq-a">本页面完全公开，无需任何认证。主站的相关操作请参考其自身说明。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">卡片信息会频繁更新吗？</div>
+            <div class="faq-a">页面内容保持相对稳定，仅在方向或结构需要调整时更新。建议以主站 <a href="https://portal--hthsports.com" style="color: #2563eb; text-decoration: none; border-bottom: 1px dotted #b9cef0;">华体会</a> 的最新信息为准。</div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        — 极简留白 · 信息卡片式介绍 —
+    </div>
+</div>
+</body>
+</html>
